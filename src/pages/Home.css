@@ -1,0 +1,48 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #efefef;
+}
+
+.loteria {
+  text-align: center;
+  padding-top: 2rem;
+  height: 65vh;
+  background-image: url("logo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.loteria select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("../imgs/Polygon1.svg");
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  width: 233px;
+  height: 51px;
+  border-radius: 10px;
+  padding-left: 33px;
+  text-transform: uppercase;
+}
+
+.loteria div:nth-child(2) {
+  margin-top: 3rem;
+}
+
+.loteria h1 {
+  margin: 0.5rem 0 3rem;
+  text-transform: uppercase;
+}
+
+.loteria p {
+  text-transform: uppercase;
+}
+
+/* .luckyNumber {
+  height: 50vh; 
+ background-color: #efefef;
+} */

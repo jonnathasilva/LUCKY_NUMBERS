@@ -53,6 +53,7 @@ export function APIProvider({ children }: ContextType) {
 
   async function GetLoteriasById(loteriaId: number) {
     const { data } = await api.get(`/concursos/${loteriaId}`);
+    console.log(data);
 
     try {
       console.log(data);
