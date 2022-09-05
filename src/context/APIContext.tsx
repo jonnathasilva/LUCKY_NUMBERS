@@ -4,6 +4,7 @@ import api from "../utils/api";
 interface AppContextInterface {
   loteria: Loterias[];
   loteriasConcursos: LoteriasConcursos[];
+  concurso: ConcursosID;
   GetLoteriasById: (loteriaId: number) => void;
 }
 
@@ -21,6 +22,13 @@ interface LoteriasConcursos {
   loteriaId: number;
 }
 
+interface ConcursosID {
+  id: string;
+  loteria: number;
+  numeros: string[];
+  data: string;
+}
+
 export const Context = createContext<AppContextInterface>(
   {} as AppContextInterface
 );
@@ -30,6 +38,7 @@ export function APIProvider({ children }: ContextType) {
   const [loteriasConcursos, setLoteriasConcursos] = useState<
     LoteriasConcursos[]
   >([]);
+  const [concurso, setConcurso] = useState<ConcursosID>({} as ConcursosID);
 
   async function GetLoterias() {
     const { data } = await api.get("/loterias");
@@ -51,12 +60,15 @@ export function APIProvider({ children }: ContextType) {
     }
   }
 
-  async function GetLoteriasById(loteriaId: number) {
-    const { data } = await api.get(`/concursos/${loteriaId}`);
-    console.log(data);
+  async function GetLoteriasById(loteriaIdParams: number) {
+    console.log(loteriaIdParams);
+    const _id = await loteriasConcursos.find(
+      (e) => e.loteriaId === loteriaIdParams
+    );
+    const { data } = await api.get(`/concursos/${_id?.concursoId}`);
 
     try {
-      console.log(data);
+      setConcurso(data);
     } catch (error) {
       console.log(error);
     }
@@ -68,7 +80,9 @@ export function APIProvider({ children }: ContextType) {
   }, []);
 
   return (
-    <Context.Provider value={{ loteria, GetLoteriasById, loteriasConcursos }}>
+    <Context.Provider
+      value={{ loteria, GetLoteriasById, loteriasConcursos, concurso }}
+    >
       {children}
     </Context.Provider>
   );

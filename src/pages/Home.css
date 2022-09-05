@@ -26,6 +26,9 @@
   height: 51px;
   border-radius: 10px;
   padding-left: 33px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
   text-transform: uppercase;
 }
 
@@ -34,7 +37,7 @@
 }
 
 .loteria h1 {
-  margin: 0.5rem 0 3rem;
+  margin: 11.85px 0 3rem;
   text-transform: uppercase;
 }
 
@@ -42,7 +45,35 @@
   text-transform: uppercase;
 }
 
-/* .luckyNumber {
-  height: 50vh; 
- background-color: #efefef;
-} */
+.luckyNumber ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.luckyNumber li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  margin: 5px 1rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.luckyNumber p {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.64px;
+  width: 316px;
+  height: 58px;
+  margin: 3rem auto 1rem;
+}
