@@ -10,7 +10,7 @@
   text-align: center;
   padding-top: 2rem;
   height: 65vh;
-  background-image: url("logo.png");
+  background-image: url("../imgs/logo.png");
   background-repeat: no-repeat;
   background-size: cover;
 }

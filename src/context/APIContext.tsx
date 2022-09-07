@@ -5,7 +5,7 @@ interface AppContextInterface {
   loteria: Loterias[];
   loteriasConcursos: LoteriasConcursos[];
   concurso: ConcursosID;
-  GetLoteriasById: (loteriaId: number) => void;
+  GetLoteriasById: (loteriaId: LoteriasConcursos) => void;
 }
 
 interface ContextType {
@@ -55,17 +55,14 @@ export function APIProvider({ children }: ContextType) {
 
     try {
       setLoteriasConcursos(data);
+      GetLoteriasById(data[0]);
     } catch (error) {
       console.log(error);
     }
   }
 
-  async function GetLoteriasById(loteriaIdParams: number) {
-    console.log(loteriaIdParams);
-    const _id = await loteriasConcursos.find(
-      (e) => e.loteriaId === loteriaIdParams
-    );
-    const { data } = await api.get(`/concursos/${_id?.concursoId}`);
+  async function GetLoteriasById(loteriaIdParams: LoteriasConcursos) {
+    const { data } = await api.get(`/concursos/${loteriaIdParams?.concursoId}`);
 
     try {
       setConcurso(data);

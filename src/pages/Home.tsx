@@ -3,12 +3,19 @@ import { Context } from "../context/APIContext";
 import LogoSena from "../imgs/Logo_Sena.png";
 import "./Home.css";
 
-function Home() {
-  const { loteria, GetLoteriasById, concurso } = useContext(Context);
+interface LoteriasConcursos {
+  concursoId: string;
+  loteriaId: number;
+}
 
-  function handleChang(e: ChangeEvent<HTMLSelectElement>) {
-    console.log(parseInt(e.target.value));
-    GetLoteriasById(parseInt(e.target.value));
+function Home() {
+  const { loteria, GetLoteriasById, concurso, loteriasConcursos } =
+    useContext(Context);
+
+  async function handleChang(e: ChangeEvent<HTMLSelectElement>) {
+    let value = parseInt(e.target.value);
+    let _id = await loteriasConcursos.find((e) => e.loteriaId === value);
+    GetLoteriasById(_id as LoteriasConcursos);
   }
 
   return (
