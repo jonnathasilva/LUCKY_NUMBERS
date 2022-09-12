@@ -10,9 +10,29 @@
   text-align: center;
   padding-top: 2rem;
   height: 65vh;
-  background-image: url("../imgs/logo.png");
+  background-image: url("../imgs/banner06.svg");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.mega-sena {
+  background-image: url("../imgs/banner.svg");
+}
+
+.quina {
+  background-image: url("../imgs/banner02.svg");
+}
+
+.lotofácil {
+  background-image: url("../imgs/banner03.svg");
+}
+
+.lotomania {
+  background-image: url("../imgs/banner04.svg");
+}
+
+.timemania {
+  background-image: url("../imgs/banner05.svg");
 }
 
 .loteria select {
